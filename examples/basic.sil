@@ -1,0 +1,18 @@
+\begin[papersize=a4,class=plain]{document}
+\use[module=packages.frontmatter]
+
+% Load and process the Markdown file with frontmatter
+\frontmatter-markdown[src=examples/basic.md]
+
+\bigskip
+\line
+
+% Access the metadata
+\bigskip
+\par{Document metadata:}
+\par{Title: \meta{title}}
+\par{Author: \meta{author}}
+\par{Date: \meta{date}}
+\par{Description: \meta{description}}
+
+\end{document}

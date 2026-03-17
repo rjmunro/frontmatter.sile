@@ -1,0 +1,31 @@
+# Lua
+*.lua~
+luac.out
+
+# LuaRocks
+*.src.rock
+*.zip
+*.tar.gz
+
+# SILE output
+*.pdf
+*.svg
+
+# Build artifacts
+/lua_modules/
+/.luarocks/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Test outputs
+/tests/*.pdf
+/examples/*.pdf
