@@ -1,0 +1,5 @@
+\begin[papersize=a4]{document}
+Hello from SILE!
+
+This is a simple test document.
+\end{document}

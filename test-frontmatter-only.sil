@@ -1,0 +1,33 @@
+\begin{document}
+
+\lua{
+  -- Test YAML parsing without requiring markdown package
+  local yamlParser = require("packages.frontmatter.yaml-parser")
+  local metadata = require("packages.frontmatter.metadata")
+  
+  -- Read test file
+  local file = io.open("examples/basic.md", "r")
+  local rawContent = file:read("*all")
+  file:close()
+  
+  -- Parse frontmatter
+  local meta, markdownContent = yamlParser.parse(rawContent)
+  
+  -- Store and display metadata
+  if meta then
+    metadata.store(SILE.scratch, meta)
+    SILE.typesetter:typeset("Frontmatter Test Results:")
+    SILE.typesetter:typeset("")
+    SILE.typesetter:typeset("Title: " .. (meta.title or "none"))
+    SILE.typesetter:typeset("")
+    SILE.typesetter:typeset("Author: " .. (meta.author or "none"))
+    SILE.typesetter:typeset("")
+    SILE.typesetter:typeset("Date: " .. (meta.date or "none"))
+    SILE.typesetter:typeset("")
+    SILE.typesetter:typeset("Description: " .. (meta.description or "none"))
+  else
+    SILE.typesetter:typeset("No frontmatter found")
+  end
+}
+
+\end{document}

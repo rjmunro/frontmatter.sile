@@ -23,7 +23,31 @@ eval $(luarocks path)
 - ✅ Value conversion and validation
 - ✅ Array/table handling
 
-### ⚠️ SILE Integration Status
+### ✅ SILE Integration with Docker
+
+**Docker workflow is now working!** The SILE Docker image provides a clean, working environment.
+
+```bash
+# Using the helper script (recommended)
+./docker-sile.sh test-frontmatter-only.sil
+
+# Or run directly
+docker run --entrypoint sh --volume "$(pwd):/data" siletypesetter/sile:latest -c \
+  "luarocks install api7-lua-tinyyaml && cd /data && sile your-file.sil"
+```
+
+**What works:**
+- ✅ YAML parsing in SILE Docker environment (LuaJIT 2.1)
+- ✅ Metadata extraction and storage
+- ✅ PDF generation with frontmatter data
+- ✅ All core package functionality
+
+**Current limitation:**
+- The standard SILE Docker image doesn't include the `markdown` package
+- Alternative: Can use SILE's built-in `pandoc` package
+- Or: Install third-party sile-markdown package in container
+
+### ⚠️ SILE Installation via Homebrew
 
 The SILE installation (0.15.13 via Homebrew) currently has dependency issues with Lua 5.5. This is an environmental issue, not a problem with our package code.
 
@@ -31,20 +55,14 @@ The SILE installation (0.15.13 via Homebrew) currently has dependency issues wit
 
 **Workarounds:**
 
-1. **Use Pandoc for PDF generation** (recommended for now)
+1. **Use Docker** (recommended) - See above
+2. **Use Pandoc for PDF generation**
    - Pandoc has native YAML frontmatter support
    - Works perfectly out of the box
    - See: `/live-stream-manual` for working example
-
-2. **Test logic without PDF output**
-   - Our standalone tests verify the package works correctly
-   - The Lua code is valid and functional
-   - SILE integration will work once environment is fixed
-
 3. **Build SILE from source** (future option)
    - Clone https://github.com/sile-typesetter/sile
    - Build with correct Lua version configuration
-   - More complex but would resolve issues
 
 ## Dependencies Installed
 
