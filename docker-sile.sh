@@ -1,9 +1,20 @@
 #!/bin/bash
 # Helper script to run SILE with frontmatter package via Docker
-# This script installs required dependencies and runs SILE
+# Uses custom sile-frontmatter image with pre-installed dependencies
 
 set -e
 
-# Install YAML library if not already installed
-docker run --entrypoint sh --volume "$(pwd):/data" siletypesetter/sile:latest -c \
-  "luarocks list | grep -q tinyyaml || luarocks install api7-lua-tinyyaml > /dev/null 2>&1; cd /data && sile $@"
+IMAGE_NAME="sile-frontmatter"
+
+# Check if custom image exists, if not provide build instructions
+if ! docker images | grep -q "^${IMAGE_NAME}"; then
+  echo "Error: Docker image '${IMAGE_NAME}' not found."
+  echo ""
+  echo "Please build the image first:"
+  echo "  docker build -t ${IMAGE_NAME} ."
+  echo ""
+  exit 1
+fi
+
+# Run SILE with our custom image
+docker run --rm --volume "$(pwd):/data" ${IMAGE_NAME} "$@"

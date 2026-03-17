@@ -1,0 +1,9 @@
+# Docker build context exclusions
+*.pdf
+.git
+.gitignore
+*.md
+tests/
+examples/
+test*.sil
+*.rockspec

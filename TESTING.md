@@ -25,18 +25,22 @@ eval $(luarocks path)
 
 ### ✅ SILE Integration with Docker
 
-**Docker workflow is now working!** The SILE Docker image provides a clean, working environment.
+**Docker workflow with custom image** - Dependencies pre-installed for fast execution.
 
 ```bash
-# Using the helper script (recommended)
+# One-time setup: Build the custom image
+docker build -t sile-frontmatter .
+
+# Run tests using the helper script
 ./docker-sile.sh test-frontmatter-only.sil
 
 # Or run directly
-docker run --entrypoint sh --volume "$(pwd):/data" siletypesetter/sile:latest -c \
-  "luarocks install api7-lua-tinyyaml && cd /data && sile your-file.sil"
+docker run --rm --volume "$(pwd):/data" sile-frontmatter your-file.sil
 ```
 
 **What works:**
+- ✅ Custom Docker image with api7-lua-tinyyaml pre-installed
+- ✅ No need to install dependencies on every run
 - ✅ YAML parsing in SILE Docker environment (LuaJIT 2.1)
 - ✅ Metadata extraction and storage
 - ✅ PDF generation with frontmatter data

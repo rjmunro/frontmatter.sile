@@ -21,20 +21,26 @@
 
 ### Docker Workflow Working
 
+**Custom Docker image with pre-installed dependencies:**
+
 ```bash
-# Using the helper script
+# One-time setup
+$ docker build -t sile-frontmatter .
+
+# Use the helper script
 $ ./docker-sile.sh test-frontmatter-only.sil
 
-# Or manually
-$ docker run --entrypoint sh --volume "$(pwd):/data" siletypesetter/sile:latest -c \
-  "luarocks install api7-lua-tinyyaml && cd /data && sile your-file.sil"
+# Or run directly
+$ docker run --rm --volume "$(pwd):/data" sile-frontmatter your-file.sil
 ```
 
 **Successfully tested:**
+- ✅ Custom Dockerfile extends siletypesetter/sile:latest
+- ✅ api7-lua-tinyyaml pre-installed (no repeated installation)
 - ✅ YAML parsing in SILE Docker environment
 - ✅ Metadata extraction and storage
 - ✅ PDF generation with frontmatter data
-- ✅ api7-lua-tinyyaml installation in container
+- ✅ Fast execution (dependencies cached in image)
 
 ### Tests Passing
 

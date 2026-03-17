@@ -22,7 +22,27 @@ YAML frontmatter support for SILE Markdown documents.
 
 ## Installation
 
-### Requirements
+### Docker (Recommended)
+
+The easiest way to use sile-frontmatter is via Docker with pre-installed dependencies:
+
+```bash
+# Build the custom image (one-time setup)
+docker build -t sile-frontmatter .
+
+# Use the helper script
+./docker-sile.sh your-document.sil
+
+# Or run directly
+docker run --rm --volume "$(pwd):/data" sile-frontmatter your-document.sil
+```
+
+The Dockerfile extends the official SILE image and includes:
+- SILE v0.15.13
+- api7-lua-tinyyaml (YAML parser)
+- All standard SILE packages
+
+### Requirements (Non-Docker)
 
 - SILE v0.15.0 or later
 - Lua 5.1, 5.2, 5.3, or LuaJIT
