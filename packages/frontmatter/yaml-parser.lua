@@ -5,6 +5,12 @@
 
 local yamlParser = {}
 
+-- Compatibility: Use SILE's SU if available, otherwise plain Lua
+local SU = SU or {
+  warn = function(msg) print("Warning: " .. msg) end,
+  error = function(msg) error(msg) end
+}
+
 -- Try to load YAML library (prefer lyaml, fall back to tinyyaml)
 local yaml
 local yamlLib = "none"
