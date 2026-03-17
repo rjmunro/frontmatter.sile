@@ -37,19 +37,19 @@ local function extractFrontmatter(content)
   if not content:match("^%s*%-%-%-") then
     return nil, content
   end
-  
+
   -- Find the closing --- (must be on its own line)
   local _, endPos = content:find("^%-%-%-.-\n%-%-%-\n", 1)
-  
+
   if not endPos then
     -- No closing delimiter found, no frontmatter
     return nil, content
   end
-  
+
   -- Extract the frontmatter block (between the --- markers)
   local frontmatterBlock = content:sub(4, endPos - 4)
   local remainingContent = content:sub(endPos + 1)
-  
+
   return frontmatterBlock, remainingContent
 end
 
@@ -60,9 +60,9 @@ local function parseYaml(yamlString)
     SU.warn("No YAML library available (install lyaml or tinyyaml)")
     return nil
   end
-  
+
   local success, result
-  
+
   if yamlLib == "lyaml" then
     success, result = pcall(yaml.load, yamlString)
   elseif yamlLib == "tinyyaml" then
@@ -70,12 +70,12 @@ local function parseYaml(yamlString)
   else
     return nil
   end
-  
+
   if not success then
     SU.warn("Failed to parse YAML frontmatter: " .. tostring(result))
     return nil
   end
-  
+
   return result
 end
 
@@ -83,13 +83,13 @@ end
 -- Returns: metadata table (or nil), markdown content
 function yamlParser.parse(content)
   local frontmatterString, markdownContent = extractFrontmatter(content)
-  
+
   if not frontmatterString then
     return nil, content
   end
-  
+
   local metadata = parseYaml(frontmatterString)
-  
+
   return metadata, markdownContent
 end
 

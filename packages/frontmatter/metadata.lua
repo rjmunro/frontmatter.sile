@@ -10,7 +10,7 @@ function metadata.store(scratch, meta)
   if not scratch.frontmatter then
     scratch.frontmatter = {}
   end
-  
+
   -- Store all metadata
   for key, value in pairs(meta) do
     scratch.frontmatter[key] = value
@@ -22,13 +22,13 @@ function metadata.get(scratch, key)
   if not scratch.frontmatter then
     return nil
   end
-  
+
   -- Support nested keys with dot notation (e.g., "author.name")
   local keys = {}
   for k in key:gmatch("[^%.]+") do
     table.insert(keys, k)
   end
-  
+
   local value = scratch.frontmatter
   for _, k in ipairs(keys) do
     if type(value) ~= "table" then
@@ -39,7 +39,7 @@ function metadata.get(scratch, key)
       return nil
     end
   end
-  
+
   return value
 end
 
@@ -69,13 +69,13 @@ metadata.commonFields = {
 -- Validate that required fields are present
 function metadata.validate(meta, requiredFields)
   local missing = {}
-  
+
   for _, field in ipairs(requiredFields or {}) do
     if not meta[field] then
       table.insert(missing, field)
     end
   end
-  
+
   return #missing == 0, missing
 end
 

@@ -16,15 +16,15 @@ function package:_init()
 end
 
 function package:registerCommands()
-  
+
   -- Command to process a Markdown file with frontmatter
   self:registerCommand("frontmatter-markdown", function(options, content)
     local filename = options.src or content[1]
-    
+
     if not filename then
       SU.error("frontmatter-markdown requires a filename")
     end
-    
+
     -- Read the file
     local file = io.open(filename, "r")
     if not file then
@@ -32,14 +32,14 @@ function package:registerCommands()
     end
     local rawContent = file:read("*all")
     file:close()
-    
+
     -- Parse frontmatter
     local meta, markdownContent = yamlParser.parse(rawContent)
-    
+
     -- Store metadata in document
     if meta then
       metadata.store(SILE.scratch, meta)
-      
+
       -- Set common document properties if present
       if meta.title then
         SILE.call("meta:title", {}, {meta.title})
@@ -51,24 +51,24 @@ function package:registerCommands()
         SILE.call("meta:date", {}, {meta.date})
       end
     end
-    
+
     -- Process the Markdown content (without frontmatter)
     SILE.processString(markdownContent, "markdown")
   end, "Process a Markdown file with YAML frontmatter")
-  
+
   -- Command to access metadata values
   self:registerCommand("meta", function(options, content)
     local key = options.key or content[1]
     if not key then
       SU.error("meta requires a key")
     end
-    
+
     local value = metadata.get(SILE.scratch, key)
     if value then
       SILE.typesetter:typeset(tostring(value))
     end
   end, "Access a frontmatter metadata value")
-  
+
 end
 
 return package
