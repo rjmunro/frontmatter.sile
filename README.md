@@ -58,7 +58,7 @@ luarocks install frontmatter.sile
 ### Manual Installation
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/frontmatter.sile.git
+git clone https://github.com/rjmunro/frontmatter.sile.git
 cd frontmatter.sile
 luarocks make
 ```

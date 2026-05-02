@@ -15,7 +15,7 @@ Thank you for considering contributing to frontmatter.sile! This package fills a
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/YOUR-USERNAME/frontmatter.sile.git
+   git clone https://github.com/rjmunro/frontmatter.sile.git
    cd frontmatter.sile
    ```
 

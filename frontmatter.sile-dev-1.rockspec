@@ -2,7 +2,7 @@ package = "frontmatter.sile"
 version = "dev-1"
 
 source = {
-   url = "git+https://github.com/YOUR-USERNAME/frontmatter.sile.git"
+   url = "git+https://github.com/rjmunro/frontmatter.sile.git"
 }
 
 description = {
@@ -13,7 +13,7 @@ description = {
       the metadata available to SILE documents for use in templates, headers,
       and document properties.
    ]],
-   homepage = "https://github.com/YOUR-USERNAME/frontmatter.sile",
+   homepage = "https://github.com/rjmunro/frontmatter.sile",
    license = "MIT"
 }
 
