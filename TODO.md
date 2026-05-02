@@ -128,6 +128,33 @@
 - [ ] Plugin system for extensions
 - [ ] Integration with build tools (Make, Gulp, etc.)
 
+### docusaurus.sile — End Goal 🎯
+
+The long-term vision is a companion package `docusaurus.sile` that makes PDF
+generation a one-command drop-in for any Docusaurus project:
+
+- [ ] Publish a Docker image to Docker Hub (e.g. `frontmattersile/docusaurus-sile`)
+  pre-bundled with SILE, markdown.sile, resilient.sile, frontmatter.sile and
+  frontmatter-resilient
+- [ ] Provide a self-contained `build-pdf.sh` script that any Docusaurus project
+  can copy in — it pulls the Docker image and outputs a PDF with no local SILE
+  install required
+- [ ] Provide a GitHub Actions workflow file for the same, so CI can produce a
+  PDF artefact automatically on every push
+- [ ] `docusaurus.sile` package: reads a Docusaurus `docusaurus.config.js` (or a
+  lightweight JSON/YAML equivalent) to discover the sidebar order, site title and
+  author, then assembles the full SILE document automatically
+- [ ] Optional per-project customisation: if a `sile/` directory exists at the
+  project root, files inside it are layered on top of the defaults:
+  - `sile/styles.yml` — resilient.sile style overrides
+  - `sile/preamble.sil` — arbitrary SILE commands run before content
+    (e.g. cover page, dedication, custom fonts)
+  - `sile/postamble.sil` — run after content (e.g. colophon, index)
+  - `sile/config.yml` — papersize, document class options, TOC depth, etc.
+- [ ] TOC, page headers/footers, and chapter numbering driven automatically by
+  the sidebar structure
+- [ ] Internal Docusaurus links rewritten to PDF cross-references where possible
+
 ### Documentation
 - [ ] Full API reference
 - [ ] Tutorial series
@@ -176,6 +203,6 @@
 
 ---
 
-**Last Updated**: 2026-03-17  
-**Current Phase**: Phase 1 (MVP)  
-**Status**: Initial scaffolding complete, ready for testing
+**Last Updated**: 2026-05-02  
+**Current Phase**: Phase 1 (MVP) — resilient.sile adapter working  
+**Status**: PDF generation working end-to-end; docusaurus.sile integration is the long-term goal
