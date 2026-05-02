@@ -1,6 +1,6 @@
-# Contributing to sile-frontmatter
+# Contributing to frontmatter.sile
 
-Thank you for considering contributing to sile-frontmatter! This package fills a genuine gap in the SILE ecosystem, and contributions are warmly welcomed.
+Thank you for considering contributing to frontmatter.sile! This package fills a genuine gap in the SILE ecosystem, and contributions are warmly welcomed.
 
 ## Getting Started
 
@@ -15,8 +15,8 @@ Thank you for considering contributing to sile-frontmatter! This package fills a
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/YOUR-USERNAME/sile-frontmatter.git
-   cd sile-frontmatter
+   git clone https://github.com/YOUR-USERNAME/frontmatter.sile.git
+   cd frontmatter.sile
    ```
 
 2. **Install SILE** (if not already installed):
@@ -163,4 +163,4 @@ Contributors will be acknowledged in:
 - Release notes
 - Git commit history
 
-Thank you for helping make sile-frontmatter better!
+Thank you for helping make frontmatter.sile better!

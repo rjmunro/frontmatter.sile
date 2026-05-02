@@ -1,4 +1,4 @@
-# sile-frontmatter Project Status
+# frontmatter.sile Project Status
 
 **Date**: 2026-03-17  
 **Phase**: 1 (MVP) - Core Functionality Complete ✅  
@@ -25,13 +25,13 @@
 
 ```bash
 # One-time setup
-$ docker build -t sile-frontmatter .
+$ docker build -t frontmatter-sile .
 
 # Use the helper script
 $ ./docker-sile.sh test-frontmatter-only.sil
 
 # Or run directly
-$ docker run --rm --volume "$(pwd):/data" sile-frontmatter your-file.sil
+$ docker run --rm --volume "$(pwd):/data" frontmatter-sile your-file.sil
 ```
 
 **Successfully tested:**

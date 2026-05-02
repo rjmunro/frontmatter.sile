@@ -1,5 +1,5 @@
 --
--- sile-frontmatter: YAML parsing module
+-- frontmatter.sile: YAML parsing module
 -- Handles extraction and parsing of YAML frontmatter from Markdown content
 --
 

@@ -1,4 +1,4 @@
-# sile-frontmatter Development Roadmap
+# frontmatter.sile Development Roadmap
 
 ## Phase 1: MVP (Current) ✅
 

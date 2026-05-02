@@ -1,10 +1,10 @@
-# sile-frontmatter
+# frontmatter.sile
 
 YAML frontmatter support for SILE Markdown documents.
 
 ## Overview
 
-`sile-frontmatter` extends SILE's Markdown support to handle YAML frontmatter metadata. This plugin parses frontmatter blocks delimited by `---` markers and makes the metadata available to SILE documents.
+`frontmatter.sile` extends SILE's Markdown support to handle YAML frontmatter metadata. This plugin parses frontmatter blocks delimited by `---` markers and makes the metadata available to SILE documents.
 
 ## Features
 
@@ -24,17 +24,17 @@ YAML frontmatter support for SILE Markdown documents.
 
 ### Docker (Recommended)
 
-The easiest way to use sile-frontmatter is via Docker with pre-installed dependencies:
+The easiest way to use frontmatter.sile is via Docker with pre-installed dependencies:
 
 ```bash
 # Build the custom image (one-time setup)
-docker build -t sile-frontmatter .
+docker build -t frontmatter-sile .
 
 # Use the helper script
 ./docker-sile.sh your-document.sil
 
 # Or run directly
-docker run --rm --volume "$(pwd):/data" sile-frontmatter your-document.sil
+docker run --rm --volume "$(pwd):/data" frontmatter-sile your-document.sil
 ```
 
 The Dockerfile extends the official SILE image and includes:
@@ -52,14 +52,14 @@ The Dockerfile extends the official SILE image and includes:
 ### Via LuaRocks (when published)
 
 ```bash
-luarocks install sile-frontmatter
+luarocks install frontmatter.sile
 ```
 
 ### Manual Installation
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/sile-frontmatter.git
-cd sile-frontmatter
+git clone https://github.com/YOUR-USERNAME/frontmatter.sile.git
+cd frontmatter.sile
 luarocks make
 ```
 
@@ -120,10 +120,10 @@ The package consists of three main components:
 ### Project Structure
 
 ```
-sile-frontmatter/
+frontmatter.sile/
 ├── README.md
 ├── LICENSE
-├── sile-frontmatter-dev-1.rockspec
+├── frontmatter.sile-dev-1.rockspec
 ├── packages/
 │   └── frontmatter/
 │       ├── init.lua          # Main package entry point

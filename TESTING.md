@@ -1,4 +1,4 @@
-# Testing sile-frontmatter
+# Testing frontmatter.sile
 
 ## Current Status
 
@@ -29,13 +29,13 @@ eval $(luarocks path)
 
 ```bash
 # One-time setup: Build the custom image
-docker build -t sile-frontmatter .
+docker build -t frontmatter-sile .
 
 # Run tests using the helper script
 ./docker-sile.sh test-frontmatter-only.sil
 
 # Or run directly
-docker run --rm --volume "$(pwd):/data" sile-frontmatter your-file.sil
+docker run --rm --volume "$(pwd):/data" frontmatter-sile your-file.sil
 ```
 
 **What works:**
@@ -94,7 +94,7 @@ luarocks install --local luafilesystem
 
 ### Setup Environment
 ```bash
-cd /Users/rjmunro/aldates/av-config/sile-frontmatter
+cd /Users/rjmunro/aldates/av-config/frontmatter.sile
 eval $(luarocks path)
 ```
 
@@ -198,7 +198,7 @@ luarocks list | grep tinyyaml
 **Solution**:
 ```bash
 # Run from package root directory
-cd /Users/rjmunro/aldates/av-config/sile-frontmatter
+cd /Users/rjmunro/aldates/av-config/frontmatter.sile
 
 # Check package.path includes current directory
 lua -e "print(package.path)"

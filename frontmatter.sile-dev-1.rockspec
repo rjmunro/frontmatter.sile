@@ -1,19 +1,19 @@
-package = "sile-frontmatter"
+package = "frontmatter.sile"
 version = "dev-1"
 
 source = {
-   url = "git+https://github.com/YOUR-USERNAME/sile-frontmatter.git"
+   url = "git+https://github.com/YOUR-USERNAME/frontmatter.sile.git"
 }
 
 description = {
    summary = "YAML frontmatter support for SILE Markdown documents",
    detailed = [[
-      sile-frontmatter extends SILE's Markdown support to handle YAML frontmatter
+      frontmatter.sile extends SILE's Markdown support to handle YAML frontmatter
       metadata blocks. It parses frontmatter delimited by --- markers and makes
       the metadata available to SILE documents for use in templates, headers,
       and document properties.
    ]],
-   homepage = "https://github.com/YOUR-USERNAME/sile-frontmatter",
+   homepage = "https://github.com/YOUR-USERNAME/frontmatter.sile",
    license = "MIT"
 }
 

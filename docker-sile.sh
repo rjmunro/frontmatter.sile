@@ -1,10 +1,10 @@
 #!/bin/bash
 # Helper script to run SILE with frontmatter package via Docker
-# Uses custom sile-frontmatter image with pre-installed dependencies
+# Uses custom frontmatter-sile image with pre-installed dependencies
 
 set -e
 
-IMAGE_NAME="sile-frontmatter"
+IMAGE_NAME="frontmatter-sile"
 
 # Check if custom image exists, if not provide build instructions
 if ! docker images | grep -q "^${IMAGE_NAME}"; then

@@ -1,5 +1,5 @@
 --
--- sile-frontmatter: Metadata management module
+-- frontmatter.sile: Metadata management module
 -- Handles storage, retrieval, and validation of frontmatter metadata
 --
 

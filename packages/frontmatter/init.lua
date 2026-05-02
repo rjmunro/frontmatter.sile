@@ -1,5 +1,5 @@
 --
--- sile-frontmatter: YAML frontmatter support for SILE Markdown
+-- frontmatter.sile: YAML frontmatter support for SILE Markdown
 -- Main package entry point
 --
 
@@ -68,6 +68,12 @@ function package:registerCommands()
       SILE.typesetter:typeset(tostring(value))
     end
   end, "Access a frontmatter metadata value")
+
+  -- Default no-op handlers for metadata hooks.
+  -- Load packages.frontmatter-resilient (or define your own) to give these meaning.
+  self:registerCommand("meta:title", function(_, _) end, "Hook: called with the document title from frontmatter")
+  self:registerCommand("meta:author", function(_, _) end, "Hook: called with the document author from frontmatter")
+  self:registerCommand("meta:date", function(_, _) end, "Hook: called with the document date from frontmatter")
 
 end
 

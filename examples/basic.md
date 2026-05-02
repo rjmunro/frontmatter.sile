@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with sile-frontmatter"
+title: "Getting Started with frontmatter.sile"
 author: "John Doe"
 date: "2026-03-17"
 description: "A basic example demonstrating frontmatter parsing"
@@ -20,7 +20,7 @@ The metadata from the frontmatter block is automatically parsed and made availab
 
 ## How It Works
 
-The `sile-frontmatter` package:
+The `frontmatter.sile` package:
 
 1. Reads the YAML block between `---` delimiters
 2. Parses the YAML into a Lua table
